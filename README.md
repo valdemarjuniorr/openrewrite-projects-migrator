@@ -20,7 +20,7 @@ This project is a tool to migrate Java projects to use the OpenRewrite project a
 
 Clone the project:
 ```bash
-$ git clone https://stash.pontoslivelo.com.br/scm/~9002331/openrewrite-projects-migrator.git
+$ git clone https://github.com/valdemarjuniorr/openrewrite-projects-migrator.git
 ```
 
 in the folder where you cloned the project, run the command below:

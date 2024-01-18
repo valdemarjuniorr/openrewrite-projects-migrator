@@ -35,8 +35,15 @@ for dir in $1/*; do
 				 <version>5.13.0<\/version> \\n \
 				 <configuration> \\n \
 				   <activeRecipes> \\n \
-					 <recipe>org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_1<\/recipe> \\n \
+					 <recipe>org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_2<\/recipe> \\n \
 					 <recipe>org.openrewrite.java.migrate.UpgradeToJava17<\/recipe> \\n \
+					 <recipe>org.openrewrite.java.RemoveUnusedImports</recipe> \\n \
+					 <recipe>org.openrewrite.java.format.BlankLines</recipe> \\n \
+					 <recipe>org.openrewrite.java.format.EmptyNewlineAtEndOfFile</recipe> \\n \
+					 <recipe>org.openrewrite.java.format.RemoveTrailingWhitespace</recipe> \\n \
+					 <recipe>org.openrewrite.java.format.Spaces</recipe> \\n \
+					 <recipe>org.openrewrite.java.format.TypecastParenPad</recipe> \\n \
+					 <recipe>org.openrewrite.java.format.WrappingAndBraces</recipe> \\n \
 				   <\/activeRecipes> \\n \
 				 <\/configuration> \\n \
 				 <dependencies> \\n \
@@ -48,7 +55,7 @@ for dir in $1/*; do
 				 <\/dependencies> \\n \
 			   <\/plugin> |g" pom.xml
 		fi
-		echo "Applying recipe to migrate to Spring Boot 3.1 and Java 17"
+		echo "Applying recipe to migrate to Spring Boot 3.2 and Java 17"
 		# run OpenRewrite command
 		mvn rewrite:run 1> /dev/null
 		# print green echo color
@@ -57,8 +64,8 @@ for dir in $1/*; do
 		echo "Committing changes to migrate-springboot3-java17 branch"
 		# run a git add . command
 		git add .
-		# run a git commit -m "Migrate to Spring Boot 3.1 and Java 17" command
-		git commit -m "Migrate to Spring Boot 3.1 and Java 17" --quiet
+		# run a git commit -m "Migrate to Spring Boot 3.2 and Java 17" command
+		git commit -m "Migrate to Spring Boot 3.2 and Java 17" --quiet
 		# run a git push origin migrate-springboot3-java17 command
 		GIT_PUSH_OUTPUT=$(git push origin migrate-springboot3-java17 2>&1)
 
